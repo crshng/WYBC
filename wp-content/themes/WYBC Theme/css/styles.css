@@ -488,29 +488,6 @@ td,
 th {
   padding: 0; }
 
-@font-face {
-  font-family: 'BauTF-Regular';
-  src: url("webfont/BauTF-Regular.eot");
-  /* IE9 Compat Modes */
-  src: url("webfont/BauTF-Regular.eot?#iefix") format("embedded-opentype"), url("webfont/BauTF-Regular.woff") format("woff"), url("webfont/BauTF-Regular.ttf") format("truetype"), url("webfont/BauTF-Regular.svg#196440deb6ec563a68a0e5ef6f1d9439") format("svg");
-  /* Legacy iOS */
-  font-style: normal;
-  font-weight: 400; }
-h1, h2, h3, h4, h5, h6, b, strong {
-  font-weight: normal; }
-
-@font-face {
-  font-family: 'CourierSans';
-  src: url("webfont/CourierSans-Light.eot");
-  /* IE9 Compat Modes */
-  src: url("webfont/CourierSans-Light.eot?#iefix") format("embedded-opentype"), url("webfont/CourierSans-Light.woff") format("woff"), url("webfont/CourierSans-Light.ttf") format("truetype"), url("webfont/CourierSans-Light.svg#0dde3885dfd146f909ad9133af3c5bc6") format("svg");
-  /* Legacy iOS */
-  font-style: normal;
-  font-weight: 200; }
-.smallcap {
-  font-size: 80%;
-  text-transform: uppercase; }
-
 .video-container {
   position: relative;
   padding-bottom: 56.25%;
@@ -570,12 +547,22 @@ html {
   -moz-osx-font-smoothing: grayscale; }
 
 body {
-  background-color: #fff; }
-  body article:first-of-type {
-    font-family: 'BauTF-Regular', Helvetica, Arial, sans-serif;
-    font-style: normal;
-    font-weight: 400; }
+  background-color: #fff;
+  font-family: 'Cousine', courier new,sans-serif; }
 
 a {
   text-decoration: none;
   color: inherit; }
+
+header .logo {
+  margin-top: 10px; }
+  header .logo h1, header .logo img {
+    display: inline-block;
+    vertical-align: middle;
+    *vertical-align: auto;
+    *zoom: 1;
+    *display: inline; }
+header nav {
+  position: absolute;
+  top: 40px;
+  right: 0; }

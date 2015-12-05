@@ -20,13 +20,23 @@ body {
 	background-color:#fff;
 	font-family:'Cousine', courier new,sans-serif;
 	// @include courier;
-
-	article:first-of-type {
-		@include bau;
-	}
 }
 
 a {
 	text-decoration:none;
 	color:inherit;
+}
+
+header {
+	.logo {
+		margin-top:10px;
+		h1, img {
+			@include inline-block;
+		}
+	}
+	nav {
+		position:absolute;
+		top:40px;
+		right:0;
+	}
 }

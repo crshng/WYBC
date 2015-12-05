@@ -17,9 +17,11 @@
 <body ng-controller="MainController as mainCtrl" in-view-container>
 <?php if(!is_login_page()){?>
 <header>
-	<h1><a href="/">WYBC</a></h1>
+	<div class="logo">
+		<img src="<?php bloginfo('template_directory'); ?>/images/yalegoat.png"></img><h1><a href="/">WYBC</a></h1>
+	</div>
 	<nav>
-		Angular routing example: 
+		<b>Angular routing example:</b>
 		<a href="/schedule">Schedule</a>
 		<a href="/djs">DJs</a>
 		<a href="/shows">Shows</a>
@@ -27,5 +29,5 @@
 		<a href="/about">About us</a>
 	</nav>
 </header>
-<audio id="stream" preload="metadata" src="http://wybc.com:8000/x.mp3"></audio>
+<audio id="stream" controls preload="metadata" src="http://wybc.com:8000/x.mp3"></audio>
 <?php } ?>
