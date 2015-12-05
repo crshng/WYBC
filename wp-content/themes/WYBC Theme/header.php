@@ -27,4 +27,5 @@
 		<a href="/about">About us</a>
 	</nav>
 </header>
+<audio id="stream" preload="metadata" src="http://wybc.com:8000/x.mp3"></audio>
 <?php } ?>

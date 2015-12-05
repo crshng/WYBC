@@ -457,7 +457,7 @@ function create_dwb_menu() {
 		)
 	);
 }
-add_action('admin_bar_menu', 'create_dwb_menu', 50);
+// add_action('admin_bar_menu', 'create_dwb_menu', 50);
 
 function save_work_meta( $post_id, $post, $update ) {
 	$hours = 24;
