@@ -21,28 +21,5 @@ App.factory('pages', function($http,$q,$window){
 		setLoading: function(loadValue){
 			isLoading = loadValue;
 		},
-		// getSinglePage: function(pageName){
-		// 	// getData(function(data) {
-		// 	// 	var work = data.filter(function(entry){
-		// 	// 		return entry.url === pageName + "/";
-		// 	// 	})[0];
-		// 	// 	callback(work);
-		// 	// });
-		// 	var work = $http.get('/site/json/?dType=work',{'cache':true}).filter(function(entry){
-		// 			return entry.url === pageName + "/";
-		// 		})[0];
-		// 	console.log(work);
-		// },
-		getLoading: function(){
-			return isLoading;
-		},
-		gaClick: function(category, action, label) {
-			$window.ga('send', {
-				hitType: 'event',
-				eventCategory: category,
-				eventAction: action,
-				eventLabel: label
-			});
-		},
 	};
 });

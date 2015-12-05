@@ -1,34 +1,32 @@
-var App = angular.module('App', ['ngRoute', 'ngSanitize', 'angular-inview']);
+var App = angular.module('App', ['ngRoute', 'ngSanitize']);
 App.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 		.when('/', {
-			// templateUrl: '/wp-content/themes/chips-ng/views/home.html'
-			templateUrl: '/wp-content/uploads/data/home.html'
+			templateUrl: '/wp-content/themes/WYBC Theme/views/home.html'
 		})
-		.when('/work/:name', {
-			templateUrl : '/wp-content/themes/chips-ng/views/work.html'
+		.when('/djs', {
+			templateUrl: '/wp-content/themes/WYBC Theme/views/djs.html'
 		})
-		.when('/clips/', {
-			templateUrl : '/wp-content/themes/chips-ng/views/clips.html'
+		.when('/schedule', {
+			templateUrl: '/wp-content/themes/WYBC Theme/views/schedule.html'
 		})
-		.when('/clips/:name', {
-			templateUrl : '/wp-content/themes/chips-ng/views/clip.html'
+		.when('/shows', {
+			templateUrl: '/wp-content/themes/WYBC Theme/views/shows.html'
 		})
-		.when('/info/', {
-			templateUrl : '/wp-content/themes/chips-ng/views/info.html'
+		.when('/about', {
+			templateUrl: '/wp-content/themes/WYBC Theme/views/about.html'
 		})
-		.when('/archive/', {
-			templateUrl : '/wp-content/themes/chips-ng/views/archive.html',
-			controller : 'archiveCtrl as archive'
+		.when('/zine', {
+			templateUrl: '/wp-content/themes/WYBC Theme/views/zine.html'
 		})
 		.otherwise( {
-			templateUrl : '/wp-content/themes/chips-ng/views/404.html'
+			templateUrl : '/wp-content/themes/WYBC Theme/views/404.html'
 		});
 	$locationProvider.html5Mode(true);
 }).run(function() {
 	FastClick.attach(document.body);
 });
-// ipt src="http://chips.ng/wp-content/themes/chips-ng/bower_components/ryanmullins-angular-hammer/angular.hammer.js"></script>
+// ipt src="http://chips.ng/wp-content/themes/WYBC Theme/bower_components/ryanmullins-angular-hammer/angular.hammer.js"></script>
 
 
 window.requestAnimFrame = (function () {
