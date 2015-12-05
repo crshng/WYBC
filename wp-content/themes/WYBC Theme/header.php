@@ -29,5 +29,9 @@
 		<a href="/about">About us</a>
 	</nav>
 </header>
-<audio id="stream" controls preload="metadata" src="http://wybc.com:8000/x.mp3"></audio>
+<audio id="stream" controls autoplay preload="metadata" ng-src="{{clearURL()}}"></audio>
+<ul class="switch source">
+	<li ng-click="source = 'http://wybc.com:8000/sports2.mp3'">Switch to Sports</li>
+	<li ng-click="source = 'http://wybc.com:8000/x.mp3'">Switch to the X</li>
+</ul>
 <?php } ?>
