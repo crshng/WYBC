@@ -1,0 +1,29 @@
+.has-status a {
+	padding-left:30px;
+}
+.has-status a:BEFORE {
+	content:"";
+	position:relative;
+	display:block;
+	float:left;
+	width:15px;
+	height:7px;
+	padding:0;
+	margin-top:6px;
+	border-radius:50% 50%;
+	background-color:#00ff00;
+}
+.status-bad a:BEFORE {
+	background-color:#ff0000;
+}
+
+.rebuilding {
+	opacity:0.5;
+	transition-duration:0.2s;
+}
+
+.smallcap {
+	background-color:#ccffff;
+	font-size:80%;
+	text-transform:uppercase;
+}
