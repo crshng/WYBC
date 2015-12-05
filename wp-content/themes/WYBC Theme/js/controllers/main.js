@@ -6,9 +6,9 @@ App.controller('MainController',['$route', '$routeParams', '$location','pages','
 	// $scope.pages.getNowPlaying().then(function(data) {
 	// 	console.log(data);
 	// });
-	$http.get('http://wybc.com:8000/sports2.mp3').then(function(data) {
-		console.log(data);
-	});
+	// $http.get('http://wybc.com:8000/sports2.mp3').then(function(data) {
+	// 	console.log(data);
+	// });
 	$scope.clearURL = function() {
         return $sce.trustAsResourceUrl($scope.source);
     };
