@@ -1,0 +1,195 @@
+@mixin font($fontName){
+	font-family:$fontName;
+	font-weight:400;
+	font-style:normal;
+}
+
+@mixin image-2x($image, $width, $height) {
+	@media (min--moz-device-pixel-ratio: 1.3),
+		(-o-min-device-pixel-ratio: 2.6/2),
+		(-webkit-min-device-pixel-ratio: 1.3),
+		(min-device-pixel-ratio: 1.3),
+		(min-resolution: 1.3dppx) {
+		/* on retina, use image that's scaled by 2 */
+			background-image: url($image);
+			background-size: $width $height;
+		}
+}
+
+@mixin breakpoint($point) {
+	@if $point == blarge {
+		@media (max-width: 1600px) { @content; }
+	}
+	@else if $point == bstandard {
+		@media (max-width: 1250px) { @content; }
+	}
+	@else if $point == baby-bear {
+		@media (max-width: 650px)  { @content; }
+	}
+}
+
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+@mixin calc($property, $expression) {
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression}); 
+} 
+
+@function trans($color, $percentage) {
+	@return lighten($color, (1-$percentage)*5%);
+}
+@function transd($color, $percentage) {
+	@return darken($color, (1-$percentage)*5%);
+}
+@mixin tran($type, $color, $percentage, $shade: lighten) {
+	@if $shade == lighten {
+		@if $type == color {
+			color: trans($color, $percentage);
+			color: rgba($color, $percentage);
+		}
+		@if $type == bg {
+			background-color: trans($color, $percentage);
+			background-color: rgba($color, $percentage);
+		}
+	}
+	@else {
+		@if $type == color {
+			color: transd($color, $percentage);
+			color: rgba($color, $percentage);
+		}
+		@if $type == bg {
+			background-color: transd($color, $percentage);
+			background-color: rgba($color, $percentage);
+		}
+	}
+}
+
+
+@mixin absFull {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+@mixin fixedFull {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+@mixin relReset {
+	position:relative;
+	width:auto;
+	height:auto;
+	top:auto;
+	left:auto;
+	bottom:auto;
+	right:auto;
+}
+
+@mixin gridSize($pair, $current) {
+	@if $current == 43 {
+		@if $pair == 169 {
+			width: ((480/3 * 4)/((480/3 * 4) + (480/9 * 16)))*100%;
+		}
+		@if $pair == 43 {
+			width: ((480/3 * 4)/((480/3 * 4) + (480/3 * 4)))*100%;
+		}
+		@if $pair == 11 {
+			width: ((480/3 * 4)/((480/3 * 4) + (480/1 * 1)))*100%;
+		}
+		@if $pair == 34 {
+			width: ((480/3 * 4)/((480/3 * 4) + (480/4 * 3)))*100%;
+		}
+	}
+	@if $current == 169 {
+		@if $pair == 169 {
+			width: ((480/9 * 16)/((480/9 * 16) + (480/9 * 16)))*100%;
+		}
+		@if $pair == 43 {
+			width: ((480/9 * 16)/((480/9 * 16) + (480/3 * 4)))*100%;
+		}
+		@if $pair == 11 {
+			width: ((480/9 * 16)/((480/9 * 16) + (480/1 * 1)))*100%;
+		}
+		@if $pair == 34 {
+			width: ((480/9 * 16)/((480/9 * 16) + (480/4 * 3)))*100%;
+		}
+	}
+	@if $current == 11 {
+		@if $pair == 169 {
+			width: ((480/1 * 1)/((480/1 * 1) + (480/9 * 16)))*100%;
+		}
+		@if $pair == 43 {
+			width: ((480/1 * 1)/((480/1 * 1) + (480/3 * 4)))*100%;
+		}
+		@if $pair == 11 {
+			width: ((480/1 * 1)/((480/1 * 1) + (480/1 * 1)))*100%;
+		}
+		@if $pair == 34 {
+			width: ((480/1 * 1)/((480/1 * 1) + (480/4 * 3)))*100%;
+		}
+	}
+	@if $current == 34 {
+		@if $pair == 169 {
+			width: ((480/4 * 3)/((480/4 * 3) + (480/9 * 16)))*100%;
+		}
+		@if $pair == 43 {
+			width: ((480/4* 3)/((480/4 * 3) + (480/3 * 4)))*100%;
+		}
+		@if $pair == 11 {
+			width: ((480/4 * 3)/((480/4 * 3) + (480/1 * 1)))*100%;
+		}
+		@if $pair == 34 {
+			width: ((480/4 * 3)/((480/4 * 3) + (480/4 * 3)))*100%;
+		}
+	}
+}
+
+@mixin setMargin($el, $ma) {
+	@if $el == image {
+		@media (min-width:$bpMobile){
+			left: - ($ma);
+		}
+	}
+	@if $el == container {
+		margin: $ma*1.75 $ma 0 2*$ma;
+		@media (max-width:$bpMobile){
+		}
+	}
+	@if $el == single-container {
+		margin: $ma $ma 0 $ma;
+		@media (max-width:$bpMobile){
+			margin: $ma $ma*0.5 0 $ma*0.5;
+		}
+	}
+}
+
+@mixin flex(){
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	-webkit-box-pack: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	flex-wrap: wrap;
+}

@@ -1,0 +1,5 @@
+<div class="video-container">
+	<iframe ng-hide="!nonCustom" width="854" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+	<video ng-hide="nonCustom" width="854" height="480"  loop vid="{{vid}}"></video>
+	<div ng-show="uiState == 'hover'" class="cursor-canvas {{cursorState}}"></div>
+</div>

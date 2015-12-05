@@ -1,0 +1,1 @@
+App.controller("HomeController",["urlhelper","pages","$window",function(a,e,t){t.ga("send","pageview",location.pathname),a.currentSection="home";var o=this;this.localData=null,e.setLoading(!0),document.title="CHIPS",$("body").removeClass().addClass("home"),e.getHomeData().then(function(a){e.setLoading(!1),o.localData=a.data[0].projectData})}]);

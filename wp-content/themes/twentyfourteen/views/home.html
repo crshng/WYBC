@@ -1,0 +1,103 @@
+<div class="project-list" ng-controller="HomeController as HomeCtrl">
+	<!-- size169-43
+	size169-169
+	size169-11
+	size43-43
+	size43-169
+	siz43-11
+	size11-43
+	size11-169
+	size11-11 -->
+	<!-- {{mainCtrl}} -->
+	<div class="project-row {{w.acf_fc_layout}}" ng-repeat="w in HomeCtrl.localData" ng-if="HomeCtrl.localData.length > 0">
+		<div class="img-wrapper insta-wrap margin-image {{w.item[0].aspect_ratio}}-aspSq" ng-if="w.acf_fc_layout=='instagram_and_item' && w.instagram_order=='before'">
+			<div class="img-pad aspSq"><img ng-src="{{ w.insta_item.instaSrc }}"></div>
+			<div class="p-caption"><a href="https://instagram.com/chipsny/" target="_blank" class="insta-link">@chipsny</a></div>
+			<div class="p-caption" ng-bind-html="'<span class=\'date\'>' + w.insta_item.date + '</span>' + w.insta_item.caption"></div>
+		</div>
+
+		<div class="img-wrapper border-{{w.border_option}}" ng-if="w.media_type=='image'">
+			<a href="{{w.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.project_title + ' click')"></a>
+			<div class="img-pad {{w.item[$index].aspect_ratio}}"><img ng-src="{{ w.image.sizes.large }}" class="{{w.acf_fc_layout}}"></div>
+			<div class="p-text">
+				<h1 ng-bind-html="w.project_title"></h1>
+				<p ng-bind-html="w.description"></p>
+			</div>
+		</div>
+		
+		<div class="video-wrapper border-{{w.border_option}} {{w.acf_fc_layout}}" ng-if="w.media_type=='video'">
+			<a href="{{w.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.project_title + ' click')"></a>
+			<vimeo vid="{{w.vimeo_id}}" ui="{{w.video_ui}}" view-play="{{w.viewPlay}}" aspect-ratio="{{w.aspect_ratio}}" in-view="w.isInView($inview, $event);"></vimeo>
+			<div class="p-text">
+				<h1 ng-bind-html="w.project_title"></h1>
+				<p ng-bind-html="w.description"></p>
+			</div>
+		</div>
+
+		<div class="img-wrapper {{w.acf_fc_layout}} margin-image border-{{w.item_one[0].border_option}} {{w.item_two[0].aspect_ratio}}-{{w.item_one[0].aspect_ratio}}" ng-if="w.item_one && w.item_one[0].media_type=='image'">
+			<a href="{{w.item_one.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item_one[0].project_title + ' click')"></a>
+			<div class="img-pad {{w.item_one[0].aspect_ratio}}"><img ng-src="{{ w.item_one[0].image.sizes.large }}"></div>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item_one[0].project_title"></h1>
+				<p ng-bind-html="w.item_one[0].description"></p>
+			</div>
+		</div>
+
+		<div class="img-wrapper {{w.acf_fc_layout}} border-{{w.item_two[0].border_option}} {{w.item_one[0].aspect_ratio}}-{{w.item_two[0].aspect_ratio}}" ng-if="w.item_two && w.item_two[0].media_type=='image'">
+			<a href="{{w.item_two.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item_two[0].project_title + ' click')"></a>
+			<div class="img-pad {{w.item_two[0].aspect_ratio}}"><img ng-src="{{ w.item_two[0].image.sizes.large }}"></div>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item_two[0].project_title"></h1>
+				<p ng-bind-html="w.item_two[0].description"></p>
+			</div>
+		</div>
+
+		<div class="video-wrapper border-{{w.item_one[0].border_option}} margin-image {{w.item_two[0].aspect_ratio}}-{{w.item_one[0].aspect_ratio}}" ng-if="w.item_one && w.item_one[0].media_type=='video'">
+			<a href="{{w.item_one.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item_one[0].project_title + ' click')"></a>
+			<vimeo vid="{{w.item_one[0].vimeo_id}}" ui="{{w.item_one[0].video_ui}}" aspect-ratio="{{w.item_one[0].aspect_ratio}}" view-play="{{w.item_one[0].viewPlay}}" in-view="w.item_one[0].isInView($inview, $event);"></vimeo>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item_one[0].project_title"></h1>
+				<p ng-bind-html="w.item_one[0].description"></p>
+			</div>
+		</div>
+
+		<div class="video-wrapper border-{{w.item_two[0].border_option}} {{w.item_one[0].aspect_ratio}}-{{w.item_two[0].aspect_ratio}}" ng-if="w.item_two && w.item_two[0].media_type=='video'">
+			<a href="{{w.item_two.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item_two[0].project_title + ' click')"></a>
+			<div class="video-container {{w.item_two[0].aspect_ratio}}">
+				<vimeo vid="{{w.item_two[0].vimeo_id}}" ui="{{w.item_two[0].video_ui}}" view-play="{{w.item_two[0].viewPlay}}" in-view="w.item_two[0].isInView($inview, $event);"></vimeo>
+				<div ng-show="w.item_two[0].video_ui == 'hover'" class="cursor-video-play"></div>
+			</div>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item_two[0].project_title"></h1>
+				<p ng-bind-html="w.item_two[0].description"></p>
+			</div>
+		</div>
+
+		<div class="img-wrapper border-{{ w.item[0].border_option }} insta-{{ w.instagram_order }} {{w.acf_fc_layout}} aspSq-{{w.item[0].aspect_ratio}}" ng-if="w.item && w.item[0].media_type=='image'">
+			<a href="{{w.item.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item[0].project_title + ' click')"></a>
+			<div class="img-pad {{w.item[0].aspect_ratio}}"><img ng-src="{{ w.item[0].image.sizes.large }}"></div>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item[0].project_title"></h1>
+				<p ng-bind-html="w.item[0].description"></p>
+			</div>
+		</div>
+
+		<div class="video-wrapper border-{{w.item[0].border_option}} insta-{{ w.instagram_order }} aspSq-{{w.item[0].aspect_ratio}}" ng-if="w.item && w.item[0].media_type=='video'">
+			<a href="{{w.item.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', w.item[0].project_title + ' click')"></a>
+				<vimeo vid="{{w.item[0].vimeo_id}}" ui="{{w.item[0].video_ui}}" aspect-ratio="{{w.item.aspect_ratio}}" view-play="{{w.item[0].viewPlay}}" in-view="w.item[0].isInView($inview, $event);"></vimeo>
+			<div class="p-text">
+				<h1 ng-bind-html="w.item[0].project_title"></h1>
+				<p ng-bind-html="w.item[0].description"></p>
+			</div>
+		</div>
+
+		<div class="img-wrapper {{w.item[0].aspect_ratio}}-aspSq" ng-if="w.acf_fc_layout=='instagram_and_item' && w.instagram_order=='after'">
+			<a href="{{w.insta_item.pURL}}" class="overlayLink" ng-click="pages.gaClick('Home page links', 'Projects nav', 'Instagram click')" target="_blank"></a>
+			<div class="img-pad aspSq"><img ng-src="{{ w.insta_item.instaSrc }}"></div>
+			<div class="p-caption"><a href="https://instagram.com/chipsny/" target="_blank" class="insta-link">@chipsny</a></div>
+			<div class="p-caption" ng-bind-html="'<span class=\'date\'>' + w.insta_item.date + '</span>' + w.insta_item.caption"></div>
+		</div>
+
+	</div>
+</div>
+

@@ -1,0 +1,1 @@
+App.controller("InfoController",["urlhelper",function(i){document.title="Information | CHIPS",$("body").removeClass().addClass("information"),i.currentSection="information",this.isInView=function(i,n,e,t){i&&(n.inViewTarget.children[1].play(),this.viewPlay=n.inViewTarget.attributes.vid.nodeValue)}}]);

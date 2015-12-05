@@ -1,0 +1,1 @@
+App.controller("MainController",["$route","$routeParams","$location","pages","$scope","urlhelper",function(t,a,e,l,n,o){var r=this;this.pageFound=!1,this.allData=null,l.setLoading(!0),n.urlhelper=o,n.pages=l,this.currentYear=null,l.getHomeData().then(function(t){l.setLoading(!1),r.allData=t.data[0].projectData}),e.path().length>3?l.setActivePage(e.path()):l.setActivePage("")}]);
