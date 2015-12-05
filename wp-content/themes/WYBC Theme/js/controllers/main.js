@@ -1,4 +1,4 @@
-App.controller('MainController',['$route', '$routeParams', '$location','pages','$scope','urlhelper', '$sce', function($route, $routeParams, $location,pages,$scope,urlhelper, $sce){
+App.controller('MainController',['$route', '$routeParams', '$location','pages','$scope','urlhelper', '$sce', '$http', function($route, $routeParams, $location,pages,$scope,urlhelper, $sce, $http){
 	var mainCtrl = this;
 	$scope.urlhelper = urlhelper;
 	$scope.pages = pages;
@@ -6,6 +6,9 @@ App.controller('MainController',['$route', '$routeParams', '$location','pages','
 	// $scope.pages.getNowPlaying().then(function(data) {
 	// 	console.log(data);
 	// });
+	$http.get('http://wybc.com:8000/sports2.mp3').then(function(data) {
+		console.log(data);
+	});
 	$scope.clearURL = function() {
         return $sce.trustAsResourceUrl($scope.source);
     };

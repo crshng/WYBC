@@ -18,7 +18,7 @@
 <?php if(!is_login_page()){?>
 <header>
 	<div class="logo">
-		<img src="<?php bloginfo('template_directory'); ?>/images/yalegoat.png"></img><h1><a href="/">WYBC</a></h1>
+		<a href="/"><img src="<?php bloginfo('template_directory'); ?>/images/yalegoat.png"></img><h1>WYBC</h1></a>
 	</div>
 	<nav>
 		<b>Angular routing example:</b>
