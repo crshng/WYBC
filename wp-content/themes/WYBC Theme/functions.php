@@ -886,26 +886,26 @@ function buildJSON($pageType){
 			$dataFileName = $upload_dir['basedir'].'/data/colors.css';
 			file_put_contents($dataFileName,$finalStyleMarkup);
 		} else if($pageType == "home"){
-			$homeData = array();
-			$homeData["projectData"] = get_field("projects",93);
-			$countCheck = 0;
-			$homeMarkup = '<div class="project-list" ng-controller="HomeController as HomeCtrl">';
-			foreach($homeData["projectData"] as $singleProjectData){
-				if($singleProjectData['acf_fc_layout'] == "single_feature"){
-					$url = get_permalink($singleProjectData['project_link'][0]);
-					$homeMarkup .= '<div class="project-row single_feature">';
-					$homeMarkup .= outputHomeContent($singleProjectData,'single_feature',array());
-					$homeMarkup .= '</div>'; // End project row div
-				} else if($singleProjectData['acf_fc_layout'] == "two_item_row"){
-					$url1 = get_permalink($singleProjectData['item_one'][0]['project_link'][0]);
-					$url2 = get_permalink($singleProjectData['item_two'][0]['project_link'][0]);
-					$homeMarkup .= '<div class="project-row two_item_row">';
-					$homeMarkup .= outputHomeContent($singleProjectData['item_one'][0],'item_one',$singleProjectData['item_two'][0]);
-					$homeMarkup .= outputHomeContent($singleProjectData['item_two'][0],'item_two',$singleProjectData['item_one'][0]);
-					$homeMarkup .= '</div>'; // End project row div
-				}
-				$countCheck++;
-			}
+			// $homeData = array();
+			// $homeData["projectData"] = get_field("projects",93);
+			// $countCheck = 0;
+			// $homeMarkup = '<div class="project-list" ng-controller="HomeController as HomeCtrl">';
+			// foreach($homeData["projectData"] as $singleProjectData){
+			// 	if($singleProjectData['acf_fc_layout'] == "single_feature"){
+			// 		$url = get_permalink($singleProjectData['project_link'][0]);
+			// 		$homeMarkup .= '<div class="project-row single_feature">';
+			// 		$homeMarkup .= outputHomeContent($singleProjectData,'single_feature',array());
+			// 		$homeMarkup .= '</div>'; // End project row div
+			// 	} else if($singleProjectData['acf_fc_layout'] == "two_item_row"){
+			// 		$url1 = get_permalink($singleProjectData['item_one'][0]['project_link'][0]);
+			// 		$url2 = get_permalink($singleProjectData['item_two'][0]['project_link'][0]);
+			// 		$homeMarkup .= '<div class="project-row two_item_row">';
+			// 		$homeMarkup .= outputHomeContent($singleProjectData['item_one'][0],'item_one',$singleProjectData['item_two'][0]);
+			// 		$homeMarkup .= outputHomeContent($singleProjectData['item_two'][0],'item_two',$singleProjectData['item_one'][0]);
+			// 		$homeMarkup .= '</div>'; // End project row div
+			// 	}
+			// 	$countCheck++;
+			// }
 
 			// $countCheck = 0;
 			// foreach($homeData["projectData"] as $singleProjectData){
@@ -937,13 +937,13 @@ function buildJSON($pageType){
 			// 	}
 			// 	$countCheck++;
 			// }
-			$homeMarkup .= '</div>';
-			// print $homeMarkup;
-			$mData[] = $homeData;
-			$upload_dir = wp_upload_dir();
-			if (!is_dir($upload_dir['basedir'].'/data')) { mkdir($upload_dir['basedir'].'/data');}
-			$dataFileName = $upload_dir['basedir'].'/data/home.html';
-			file_put_contents($dataFileName,$homeMarkup);
+			// $homeMarkup .= '</div>';
+			// // print $homeMarkup;
+			// $mData[] = $homeData;
+			// $upload_dir = wp_upload_dir();
+			// if (!is_dir($upload_dir['basedir'].'/data')) { mkdir($upload_dir['basedir'].'/data');}
+			// $dataFileName = $upload_dir['basedir'].'/data/home.html';
+			// file_put_contents($dataFileName,$homeMarkup);
 		}
 	} else {
 		// print $pageType;

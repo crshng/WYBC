@@ -1,0 +1,1 @@
+App.controller("MainController",["$route","$routeParams","$location","pages","$scope","urlhelper","$sce","$http",function(t,e,o,r,c,s,l,n){var u=this;c.urlhelper=s,c.pages=r,c.source="http://wybc.com:8000/x.mp3",n.get("http://wybc.com:8000/status.xsl").then(function(t){console.log(t)}),c.clearURL=function(){return l.trustAsResourceUrl(c.source)}}]);
